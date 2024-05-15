@@ -87,9 +87,7 @@ function renderInfo(income, expenses) {
 
 function formatPretty(result) {
   if (result % 1 == 0) {
-    return result <= 0
-      ? `${result.toLocaleString()}.00`
-      : `${result.toLocaleString()}.00`;
+    return `${result.toLocaleString()}.00`;
   }
   return +Number.parseFloat(result.toLocaleString()).toFixed(2);
 }
@@ -191,18 +189,16 @@ function firstRender() {
     document.querySelector(".currentBalance").innerText =
       Number.parseFloat(0.0).toFixed(2);
   } else {
+    const transactionsSums = calcSums();
     if (incomeArr.length == 0) {
-      const transactionsSums = calcSums();
-      createDOMHistoryItems("-", transactionsSums[1]);
+      createDOMHistoryItems("-", ...transactionsSums);
       renderInfo(0, transactionsSums[1]);
     } else if (expensesArr.length == 0) {
-      const transactionsSums = calcSums();
       createDOMHistoryItems("+", 0);
       renderInfo(transactionsSums[0], 0);
     } else {
-      const transactionsSums = calcSums();
-      createDOMHistoryItems("+", transactionsSums[0]);
-      createDOMHistoryItems("-", transactionsSums[0]);
+      createDOMHistoryItems("+", ...transactionsSums);
+      createDOMHistoryItems("-", ...transactionsSums);
       renderInfo(...transactionsSums);
     }
   }
