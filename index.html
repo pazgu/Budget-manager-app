@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Available Budget in</h1>
+        <div class="currentBalance"></div>
+        <div id="income" class="headerTransactionsContainer">
+          <h2>INCOME</h2>
+          <div id="sumDisplayIncomes"></div>
+        </div>
+        <div id="expenses" class="headerTransactionsContainer">
+          <h2>EXPENSES</h2>
+          <div class="valueDisplay">
+            <div id="sumDisplayExpenses"></div>
+            <span id="percentages">-</span>
+          </div>
+        </div>
+      </div>
+      <div class="userInputsContainer">
+        <select
+          id="valueOperation"
+          onchange="changeInputStyleBasedOnOperator(this)"
+          onclick="applyBorderStyle(this)"
+          onblur="removerBorderStyle(this)"
+        >
+          <option id="plusOpt" value="+">+</option>
+          <option value="-" id="minusOpt">-</option>
+        </select>
+        <input type="text" id="descInput" placeholder="Add Description" />
+        <input type="number" id="valInput" placeholder="Value" min="1" />
+        <i class="fa-regular fa-circle-check"></i>
+        <div id="errorDisplay"></div>
+      </div>
+      <div id="transactionsHistoryContainer">
+        <div id="incomesHistory" class="historyContainer">
+          <h2>INCOME</h2>
+          <div id="dynamicIncomesContainer" class="dynamicContainers"></div>
+        </div>
+        <div id="expensesHistory" class="historyContainer">
+          <h2>EXPENSES</h2>
+          <div id="dynamicExpensesContainer" class="dynamicContainers"></div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerTransactionsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 27%;
+  min-width: 350px;
+  height: 18%;
+  padding-inline: 0.5vw;
+}
+
+.header {
+  background-image: linear-gradient(rgb(96, 96, 96), rgb(0, 0, 0)),
+    url("./assets/header-bg.jfif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 22em;
+  color: rgb(227, 233, 238);
+  background-blend-mode: soft-light;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-weight: 400;
+  gap: 0.6em;
+  padding-bottom: 1em;
+}
+
+#income {
+  background-color: rgb(50, 165, 160);
+}
+
+#expenses {
+  background-color: rgb(245, 50, 55);
+}
+
+#incomesHistory {
+  color: rgb(50, 165, 160);
+}
+
+#expensesHistory {
+  color: rgb(245, 50, 55);
+}
+
+#transactionsHistoryContainer {
+  display: flex;
+  gap: 3vw;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 2em;
+}
+
+.userInputsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  gap: 1vw;
+  background-color: rgb(245, 240, 245);
+  width: 100%;
+}
+
+#valueOperation {
+  width: 3%;
+  height: 3em;
+  min-width: 3em;
+  font-weight: 900;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+}
+
+.valueDisplay {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+h1 {
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.currentBalance {
+  font-size: 4.5rem;
+  padding-top: 0px;
+  margin-bottom: 1vh;
+}
+
+.header h2 {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: medium;
+}
+
+span#percentages {
+  display: flex;
+  justify-content: center;
+  padding-inline: 5px;
+  align-items: center;
+  min-width: 2vw;
+  font-size: 70%;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 2.2em;
+  border-radius: 5px;
+}
+
+input {
+  height: 3em;
+  border-radius: 5px;
+  min-width: 6em;
+  padding-left: 8px;
+  outline-color: #32a5a0;
+  border: 1px solid rgb(219, 219, 219);
+}
+
+.fa-circle-check {
+  font-size: x-large;
+  color:  rgb(50, 165, 160);
+}
+
+input#descInput {
+  width: 25%;
+}
+
+input#valInput {
+  width: 6%;
+}
+
+.historyContainer {
+  width: 25vw;
+  min-width: 215px;
+}
+
+.dynamicContainers {
+  display: flex;
+  flex-direction: column;
+}
+
+.historyItem {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  border-top: 1px solid rgb(221, 221, 221);
+  padding-left: 8px;
+}
+
+.historyItemValuesContainer {
+  min-width: 10em;
+  justify-content: flex-end;
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  position: relative;
+  left: 1.1em;
+  transition: all 0.3s ease 0s;
+}
+
+.historyItem:hover {
+  & .historyItemValuesContainer {
+    left: 0px;
+    transition: all 0.3s ease 0s;
+    padding-right: 8px;
+  }
+}
+
+#incomesHistory h2,
+#expensesHistory h2 {
+  font-weight: 400;
+  font-size: large;
+}
+
+.historyItem p {
+  color: rgb(0, 0, 0);
+  overflow-wrap: normal;
+  max-width: 14em;
+}
+
+.historyItem:last-child {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.precentagesHistory {
+  background-color: rgb(245, 50, 55, 0.2); 
+  padding: 0.5em;
+  font-size: x-small;
+  border-radius: 5px;
+  font-weight: 600;
+  height: 2.2em;
+}
+
+.fa-circle-xmark {
+  cursor: pointer;
+  margin-left: 0px;
+}
+
+.historyItem:nth-child(2n + 1) {
+  background-color: rgb(255, 255, 255);
+}
+
+.historyItem:nth-child(2n) {
+  background-color: rgb(245, 245, 245);
+}
+div#sumDisplayIncomes {
+  position: relative;
+  right: 3vw;
+}
+@media (max-width: 450px) {
+  #transactionsHistoryContainer {
+    flex-direction: column;
+  }
+  h1 {
+    text-align: center;
+  }
+}
+
+
