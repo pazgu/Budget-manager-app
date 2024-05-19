@@ -166,20 +166,6 @@ function removeFromCorrectArray(idStrParam, i) {
   }
 }
 
-function updateLocalStorage(KEY) {
-  localStorage.setItem(
-    KEY,
-    JSON.stringify(KEY === "incomes" ? incomeArr : expensesArr)
-  );
-}
-
-function initializeArrayFromLocalStorage(KEY) {
-  if (localStorage.getItem(KEY)) {
-    return JSON.parse(localStorage.getItem(KEY));
-  }
-  return [];
-}
-
 function firstRender() {
   if (incomeArr.length == 0 && expensesArr.length == 0) {
     document.querySelector("#sumDisplayIncomes").innerText =
@@ -243,3 +229,7 @@ function getElemIndexInArray(btnTargetElem, idStrParam) {
   }
   return indexResult;
 }
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
